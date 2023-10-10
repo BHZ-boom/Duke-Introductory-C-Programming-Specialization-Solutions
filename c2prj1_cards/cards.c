@@ -143,22 +143,22 @@ card_t card_from_letters(char value_let, char suit_let) {
       temp.value= 9;
       break;
       case '0':
-      temp.value=  0;
+      temp.value=0;
       break;
       case 'J':
-      temp.value=  11;
+      temp.value=11;
       break;
       case 'Q':
-      temp.value=  12;
+      temp.value=12;
       break;
       case 'K':
-      temp.value=  13;
+      temp.value=13;
       break;
       case 'A':
-      temp.value=  14;
+      temp.value=14;
       break;
       default:
-      temp.value= 0;
+      temp.value=0;
       break;
    }
    switch(suit_let){
