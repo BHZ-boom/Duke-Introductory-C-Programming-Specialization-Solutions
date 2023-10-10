@@ -143,7 +143,7 @@ card_t card_from_letters(char value_let, char suit_let) {
       temp.value= 9;
       break;
       case '0':
-      temp.value=0;
+      temp.value=10;
       break;
       case 'J':
       temp.value=11;
