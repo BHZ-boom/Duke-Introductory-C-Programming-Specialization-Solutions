@@ -1,0 +1,82 @@
+Grading at Wed 03 Jan 2024 08:57:12 AM UTC
+Attempting to compile rectangle.c
+rectangle.c: In function ‘find_x_max’:
+rectangle.c:37:1: error: ISO C forbids nested functions [-Werror=pedantic]
+   37 | rectangle find_x_min(rectangle r1, rectangle r2){
+      | ^~~~~~~~~
+rectangle.c: In function ‘find_x_min’:
+rectangle.c:46:1: error: ISO C forbids nested functions [-Werror=pedantic]
+   46 | rectangle find_y_max(rectangle r1, rectangle r2){
+      | ^~~~~~~~~
+rectangle.c: In function ‘find_y_max’:
+rectangle.c:53:1: error: ISO C forbids nested functions [-Werror=pedantic]
+   53 | rectangle find_y_min(rectangle r1, rectangle r2){
+      | ^~~~~~~~~
+rectangle.c: In function ‘find_y_min’:
+rectangle.c:64:1: error: ISO C forbids nested functions [-Werror=pedantic]
+   64 | rectangle canonicalize(rectangle r) {
+      | ^~~~~~~~~
+rectangle.c:76:1: error: ISO C forbids nested functions [-Werror=pedantic]
+   76 | rectangle intersection(rectangle r1, rectangle r2) {
+      | ^~~~~~~~~
+rectangle.c: In function ‘intersection’:
+rectangle.c:83:27: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘w’
+   83 |  if (x_max.x<x_min.x+x_min.w &&
+      |                           ^
+rectangle.c:84:25: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘h’
+   84 |    y_max.y<y_min.y+y_min.h){
+      |                         ^
+rectangle.c:86:20: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘w’
+   86 |   if (x_max.x+x_max.w>x_min.x+x_min.w){
+      |                    ^
+rectangle.c:86:36: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘w’
+   86 |   if (x_max.x+x_max.w>x_min.x+x_min.w){
+      |                                    ^
+rectangle.c:88:21: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘h’
+   88 |    if (y_max.y+y_max.h>y_min.y+y_min.h){
+      |                     ^
+rectangle.c:88:37: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘h’
+   88 |    if (y_max.y+y_max.h>y_min.y+y_min.h){
+      |                                     ^
+rectangle.c:94:4: error: expected ‘,’ or ‘;’ before ‘}’ token
+   94 |    }
+      |    ^
+rectangle.c:93:15: error: unused variable ‘anw2’ [-Werror=unused-variable]
+   93 |     rectangle anw2={x_max.x,y_max.y,y_max.height, x_min.width-x_max.x+x_min.x}
+      |               ^~~~
+rectangle.c:96:3: error: expected ‘}’ before ‘else’
+   96 |   else{
+      |   ^~~~
+rectangle.c:97:21: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘h’
+   97 |    if (y_max.y+y_max.h>y_min.y+y_min.h){
+      |                     ^
+rectangle.c:97:37: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘h’
+   97 |    if (y_max.y+y_max.h>y_min.y+y_min.h){
+      |                                     ^
+rectangle.c: In function ‘find_y_min’:
+rectangle.c:114:1: error: ISO C forbids nested functions [-Werror=pedantic]
+  114 | void printRectangle(rectangle r) {
+      | ^~~~
+rectangle.c:125:1: error: ISO C forbids nested functions [-Werror=pedantic]
+  125 | int main (void) {
+      | ^~~
+rectangle.c:125:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  125 | int main (void) {
+      |     ^~~~
+rectangle.c:230:1: error: expected declaration or statement at end of input
+  230 | }
+      | ^
+rectangle.c: In function ‘find_y_max’:
+rectangle.c:230:1: error: expected declaration or statement at end of input
+rectangle.c: In function ‘find_x_min’:
+rectangle.c:230:1: error: expected declaration or statement at end of input
+rectangle.c: In function ‘find_x_max’:
+rectangle.c:230:1: error: expected declaration or statement at end of input
+At top level:
+rectangle.c:125:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  125 | int main (void) {
+      |     ^~~~
+cc1: all warnings being treated as errors
+The code did not compile!
+
+Overall Grade: F
