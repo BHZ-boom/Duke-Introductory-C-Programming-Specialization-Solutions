@@ -2,13 +2,14 @@
 #include <stdlib.h>
 //I've provided "min" and "max" functions in
 //case they are useful to you
-
 typedef struct{
 	int x;
 	int y;
 	int height;
 	int width;
 }rectangle;
+
+
 rectangle intersection(rectangle r1, rectangle r2); 
 rectangle find_x_max(rectangle r1, rectangle r2);
 rectangle find_x_min(rectangle r1, rectangle r2);
@@ -27,39 +28,8 @@ int max (int a, int b) {
   }
   return b;
 }
-rectangle find_x_max(rectangle r1, rectangle r2){
-	if (r1.x>r2.x){
-		return r1;
-	}
-	else{
-		return r2;
-	}
-rectangle find_x_min(rectangle r1, rectangle r2){
-	rectangle max=find_x_max(r1,r2);
-	if(max.x==r1.x&&max.y==r1.y&&max.height==r1.height&&max.width==r1.width){
-		return r2;
-	}
-	else{
-		return r1;
-	}
 
-rectangle find_y_max(rectangle r1, rectangle r2){
-	if (r1.y>r2.y){
-		return r1;
-	}
-	else{
-		return r2;
-	}
-rectangle find_y_min(rectangle r1, rectangle r2){
-	rectangle max=find_y_max(r1,r2);
-	if(max.x==r1.x&&max.y==r1.y&&max.height==r1.height&&max.width==r1.width){
-		return r2;
-	}
-	else{
-		return r1;
-	}
 //Declare your rectangle structure here!
-
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
@@ -75,26 +45,28 @@ rectangle canonicalize(rectangle r) {
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
+  r1=canonicalize(r1);
+  r2=canonicalize(r2);
 	rectangle x_max=find_x_max(r1,r2);
 	rectangle x_min=find_x_min(r1,r2);
 	rectangle y_max=find_y_max(r1,r2);
 	rectangle y_min=find_y_min(r1,r2);
 	//judge if intersection
-	if (x_max.x<x_min.x+x_min.w && 
-			y_max.y<y_min.y+y_min.h){
+	if (x_max.x<=x_min.x+x_min.width && 
+			y_max.y<=y_min.y+y_min.height){
 		//distinguish x
-		if (x_max.x+x_max.w>x_min.x+x_min.w){
+		if (x_max.x+x_max.width>=x_min.x+x_min.width){
 			//distinguish y
-			if (y_max.y+y_max.h>y_min.y+y_min.h){
+			if (y_max.y+y_max.height>=y_min.y+y_min.height){
 			rectangle anw1={x_max.x,y_max.y,y_min.height-y_max.y+y_min.y, x_min.width-x_max.x+x_min.x};
 				return anw1;
 			}
 			else{
-				rectangle anw2={x_max.x,y_max.y,y_max.height, x_min.width-x_max.x+x_min.x}
+				rectangle anw2={x_max.x,y_max.y,y_max.height, x_min.width-x_max.x+x_min.x} ;
 			}
 		}
 		else{
-			if (y_max.y+y_max.h>y_min.y+y_min.h){
+			if (y_max.y+y_max.height>=y_min.y+y_min.height){
 				rectangle anw3={x_max.x,y_max.y, y_min.height-y_max.y+y_min.y, x_max.width};
 				return anw3;
 			}
@@ -227,4 +199,42 @@ int main (void) {
 
   return EXIT_SUCCESS;
 
+}
+
+rectangle find_x_max(rectangle r1, rectangle r2){
+	if (r1.x>r2.x){
+		return r1;
+	}
+	else{
+		return r2;
+	}
+}
+
+rectangle find_x_min(rectangle r1, rectangle r2){
+	rectangle max=find_x_max(r1,r2);
+	if(max.x==r1.x&&max.y==r1.y&&max.height==r1.height&&max.width==r1.width){
+		return r2;
+	}
+	else{
+		return r1;
+	}
+}
+
+rectangle find_y_max(rectangle r1, rectangle r2){
+	if (r1.y>r2.y){
+		return r1;
+	}
+	else{
+		return r2;
+	}
+}
+
+rectangle find_y_min(rectangle r1, rectangle r2){
+	rectangle max=find_y_max(r1,r2);
+	if(max.x==r1.x&&max.y==r1.y&&max.height==r1.height&&max.width==r1.width){
+		return r2;
+	}
+	else{
+		return r1;
+	}
 }

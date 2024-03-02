@@ -1,0 +1,9 @@
+Grading at Fri 13 Oct 2023 03:25:00 PM UTC
+Attempting to compile test.c
+gcc -o test test.c
+compiled
+Line_7_did_not_match
+Your file did not match the expected ouput
+Your output did not match what we expected.
+
+Overall Grade: FAILED

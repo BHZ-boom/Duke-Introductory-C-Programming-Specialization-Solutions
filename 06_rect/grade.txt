@@ -21,7 +21,7 @@ rectangle.c:76:1: error: ISO C forbids nested functions [-Werror=pedantic]
       | ^~~~~~~~~
 rectangle.c: In function ‘intersection’:
 rectangle.c:83:27: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘w’
-   83 |  if (x_max.x<x_min.x+x_min.w &&
+   82 |  if (x_max.x<x_min.x+x_min.w &&
       |                           ^
 rectangle.c:84:25: error: ‘rectangle’ {aka ‘struct <anonymous>’} has no member named ‘h’
    84 |    y_max.y<y_min.y+y_min.h){
